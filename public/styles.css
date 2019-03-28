@@ -6,34 +6,13 @@ body {
   margin: 0px;
 }
 
-/* Header */
-.header {
-  display: flex;
-  padding: 20px 100px 0px 100px;
-  background-color: #5BDEFF;
-  color: #fff;
+.intro {
+  text-align: center
 }
 
-.title {
-  margin-top: 10px;
-}
-
-.title h1, .title h2 {
-  margin: 0px;
-}
-
-.title h1 {
-  border-top: 1px solid #000;
-}
-
-/* Footer */
-.footer {
-  height: 50px;
-  padding: 20px 100px 0px 100px;
-}
-
-.footer a {
-  color: #000;
+h3 {
+  font-size: 40px;
+  font-weight: bold;
 }
 
 /* Content */
@@ -83,12 +62,12 @@ input, textarea, select, button {
 }
 
 /* Uploaded images */
-.upload h2 {
+.listing h2 {
   margin: 0px;
 }
 
-.upload img {
-  max-width: 300px;
+.listing img {
+  max-width: 100px;
 }
 
 /* Suggestions */
@@ -117,18 +96,51 @@ html {
   box-sizing: inherit;
 }
 
-.image-gallery {
-  column-gap: 1.5em;
-}
-
 .image {
-  margin: 0 0 1.5em;
   display: inline-block;
-  width: 100%;
+  width: 10%;
+  height: 10%;
+  margin-left: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 7px;
+  flex: 1;
 }
 
 .image img {
-  width: 100%;
+  width: 10%;
+  height: 10%;
+}
+
+.listing {
+  display: flex;
+  background-color: #D3D3D3;
+  border-radius: 7px;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  margin-top: 40px;
+}
+
+.information {
+  margin-right: 20px;
+  text-align: left;
+  flex: 4;
+}
+
+.buy {
+  margin-right: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 99%;
+  flex: 1;
+}
+
+@media only screen and (max-width: 630px) {
+  .listing {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
 }
 
 /* Masonry on large screens */

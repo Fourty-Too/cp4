@@ -1,8 +1,9 @@
 var app = new Vue({
-  el: '#admin',
+  el: '#add',
   data: {
     title: "",
     description: "",
+    price: "",
     file: null,
     addItem: null,
     items: [],
@@ -27,10 +28,12 @@ var app = new Vue({
         formData.append('photo', this.file, this.file.name);
         console.log(this.title);
         console.log(this.description);
+        console.log(this.price);
         let r1 = await axios.post('/api/photos', formData);
         let r2 = await axios.post('/api/items', {
           title: this.title,
           description: this.description,
+          price: this.price,
           path: r1.data.path
         });
         console.log(r2.data);
@@ -48,21 +51,12 @@ var app = new Vue({
         console.log(error);
       }
     },
-    async deleteItem(item) {
-      try {
-        let response = axios.delete("/api/items/" + item._id);
-        this.findItem = null;
-        this.getItems();
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
-    },
     async editItem(item) {
       try {
         let response = await axios.put("/api/items/" + item._id, {
           title: this.findItem.title,
           description: this.findItem.description,
+          price: this.findItem.price,
         });
         this.findItem = null;
         this.getItems();

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Museum of Ordinary Objects</title>
+</head>
+
+<body>
+  <nav class="navbar fixed-top navbar-dark bg-primary" style="box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important">
+    <a class="navbar-brand" href="index.html">
+      <span><img src="/images/dollar.png"></span>
+      Sell Your Things!
+    </a>
+  </nav>
+
+  <div id="add" class="content" style="margin-top: 100px">
+    <h1>Sell A Thing</h1>
+    <br />
+    <br />
+    <div class="heading">
+      <div class="circle">1</div>
+      <h2>Choose a Title</h2>
+    </div>
+    <div class="add">
+      <div class="form">
+        <input v-model="title" placeholder="Title">
+      </div>
+    </div>
+
+    <div class="heading">
+      <div class="circle">2</div>
+      <h2>Decide on a Price</h2>
+    </div>
+    <div class="add">
+      <div class="form">
+        <input v-model="price" placeholder="Price">
+      </div>
+    </div>
+
+    <div class="heading">
+      <div class="circle">3</div>
+      <h2>Add a Description</h2>
+    </div>
+    <div class="add">
+      <div class="form">
+        <input type="textarea" v-model="description" placeholder="Description">
+      </div>
+    </div>
+
+    <div class="heading">
+      <div class="circle">4</div>
+      <h2>Add an Image</h2>
+    </div>
+    <div class="add">
+      <div class="form">
+        <input type="file" name="photo" @change="fileChanged">
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <button class="btn btn-primary" @click="upload">Sell!</button>
+    <div class="upload" v-if="addItem">
+      <h2>{{addItem.title}}</h2>
+      <p>{{addItem.price}}</p>
+      <p>{{addItem.description}}</p>
+      <img :src="addItem.path" />
+    </div>
+
+  </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="/add.js"></script>
+</body>
+
+</html>

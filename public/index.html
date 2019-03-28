@@ -2,31 +2,54 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
   <title>Museum of Ordinary Objects</title>
 </head>
 
 <body>
-  <div class="header">
-    <div class="logo">
-      <img src="/images/ordinary.png">
-    </div>
-    <div class="title">
-      <h2>CS 260</h2>
-      <h1>Museum of Ordinary Objects</h1>
-    </div>
-  </div>
+  <nav class="navbar fixed-top navbar-dark bg-primary" style="box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important">
+    <a class="navbar-brand" href="index.html">
+      <span><img src="/images/dollar.png"></span>
+      Sell Your Things!
+    </a>
+  </nav>
+
   <div id="app" class="content">
-    <section class="image-gallery">
-      <div class="image" v-for="item in items">
-        <h2>{{item.title}}</h2>
-        <img :src="item.path" />
-        <p>{{item.description}}</p>
+    <section style="margin-top: 100px">
+      <div class="intro">
+        <h3><b>Sell Your Things</b></h3>
+        <p style="width: 50%; text-align: center; margin-left: auto; margin-right: auto">This is a place where you can sell your things. People can buy your things if they want too.
+          So what are you waiting for? Sell your things!</p>
+        <a href="/add.html"><button class="btn btn-primary">Sell A Thing</button></a>
+        <br />
+        <br />
+        <br />
+
+      </div>
+      <div class="listing" v-for="item in items">
+        <img class="image" :src="item.path" />
+        <div style="width: 50px">
+          <p></p>
+        </div>
+        <div class="information">
+          <h1>{{item.title}}</h1>
+          <h2>{{item.price}}</h2>
+          <p>{{item.description}}</p>
+        </div>
+        <div style="width: 50px">
+          <p></p>
+        </div>
+        <div class="buy">
+          <button class="btn btn-primary" @click="deleteItem(item)">Buy This Thing!</button>
+        </div>
       </div>
   </div>
-  <div class="footer">
-    <a href="/admin.html">Admin</a>
+  <br />
+  <br />
+  <br />
+  </section>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>

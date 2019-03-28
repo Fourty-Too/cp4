@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 const mongoose = require('mongoose');
 
@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/selling', {
 //Configure multer so that it will upload to '/public/images'
 const multer = require('multer')
 const upload = multer({
-  dest: './public/images/',
+  dest: '/var/www/cp4.jpandersen.xyz/images',
   limits: {
     fileSize: 10000000
   }
@@ -94,4 +94,4 @@ app.delete('/api/items/:id', async(req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+app.listen(3001, () => console.log('Server listening on port 3000!'));
